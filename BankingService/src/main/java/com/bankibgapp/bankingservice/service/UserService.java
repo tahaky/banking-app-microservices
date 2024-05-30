@@ -23,13 +23,11 @@ public class UserService {
     public UserDTO getUser(String identificationNumber) {
         Optional<User> user = userRepository.findByIdentificationNumber(identificationNumber);
         if (user.isPresent()) {
-            UserDTO userDTO = new UserDTO();
             return userMapper.convertToDto(user.get());
         } else {
             throw new RuntimeException("err");
         }
     }
-
     public List<UserDTO> readUsers() {
         return userMapper.convertToDtoList(userRepository.findAll());
     }

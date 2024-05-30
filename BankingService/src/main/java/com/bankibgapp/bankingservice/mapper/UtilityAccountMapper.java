@@ -3,7 +3,9 @@ package com.bankibgapp.bankingservice.mapper;
 import com.bankibgapp.bankingservice.dto.UtilityAccountDTO;
 import com.bankibgapp.bankingservice.model.UtilityAccount;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UtilityAccountMapper extends BaseMapper<UtilityAccount, UtilityAccountDTO> {
     @Override
     public UtilityAccount convertToEntity(UtilityAccountDTO dto, Object... args) {
