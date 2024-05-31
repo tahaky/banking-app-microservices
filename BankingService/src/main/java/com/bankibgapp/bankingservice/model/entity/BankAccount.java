@@ -1,5 +1,7 @@
-package com.bankibgapp.bankingservice.model;
+package com.bankibgapp.bankingservice.model.entity;
 
+import com.bankibgapp.bankingservice.model.AccountStatus;
+import com.bankibgapp.bankingservice.model.AccountType;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;

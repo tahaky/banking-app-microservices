@@ -1,4 +1,4 @@
-package com.bankibgapp.bankingservice.request
+package com.bankibgapp.bankingservice.model.request
 
 import java.math.BigDecimal
 

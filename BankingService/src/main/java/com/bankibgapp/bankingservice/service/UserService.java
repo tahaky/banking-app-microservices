@@ -1,12 +1,11 @@
 package com.bankibgapp.bankingservice.service;
 
-import com.bankibgapp.bankingservice.dto.UserDTO;
-import com.bankibgapp.bankingservice.mapper.UserMapper;
-import com.bankibgapp.bankingservice.model.User;
+import com.bankibgapp.bankingservice.model.dto.UserDTO;
+import com.bankibgapp.bankingservice.model.mapper.UserMapper;
+import com.bankibgapp.bankingservice.model.entity.User;
 import com.bankibgapp.bankingservice.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 

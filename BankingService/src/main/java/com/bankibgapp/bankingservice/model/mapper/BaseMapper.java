@@ -1,4 +1,4 @@
-package com.bankibgapp.bankingservice.mapper;
+package com.bankibgapp.bankingservice.model.mapper;
 
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package com.bankibgapp.bankingservice.dto
+package com.bankibgapp.bankingservice.model.dto
 
 import java.util.*
 

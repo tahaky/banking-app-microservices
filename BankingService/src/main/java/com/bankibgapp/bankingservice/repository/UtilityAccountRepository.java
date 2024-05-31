@@ -1,5 +1,6 @@
-package com.bankibgapp.bankingservice.model;
+package com.bankibgapp.bankingservice.repository;
 
+import com.bankibgapp.bankingservice.model.entity.UtilityAccount;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

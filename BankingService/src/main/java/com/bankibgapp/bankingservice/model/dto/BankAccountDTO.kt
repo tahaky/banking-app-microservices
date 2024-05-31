@@ -1,8 +1,8 @@
-package com.bankibgapp.bankingservice.dto
+package com.bankibgapp.bankingservice.model.dto
 
 import com.bankibgapp.bankingservice.model.AccountStatus
 import com.bankibgapp.bankingservice.model.AccountType
-import com.bankibgapp.bankingservice.model.User
+import com.bankibgapp.bankingservice.model.entity.User
 import java.math.BigDecimal
 import java.util.*
 

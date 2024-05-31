@@ -1,7 +1,7 @@
-package com.bankibgapp.bankingservice.mapper;
+package com.bankibgapp.bankingservice.model.mapper;
 
-import com.bankibgapp.bankingservice.dto.BankAccountDTO;
-import com.bankibgapp.bankingservice.model.BankAccount;
+import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
+import com.bankibgapp.bankingservice.model.entity.BankAccount;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

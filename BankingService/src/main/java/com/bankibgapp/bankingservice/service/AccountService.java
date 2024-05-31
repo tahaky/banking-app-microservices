@@ -1,13 +1,13 @@
 package com.bankibgapp.bankingservice.service;
 
 
-import com.bankibgapp.bankingservice.dto.BankAccountDTO;
-import com.bankibgapp.bankingservice.dto.UtilityAccountDTO;
-import com.bankibgapp.bankingservice.mapper.BankAccountMapper;
-import com.bankibgapp.bankingservice.mapper.UtilityAccountMapper;
-import com.bankibgapp.bankingservice.model.BankAccount;
-import com.bankibgapp.bankingservice.model.UtilityAccount;
-import com.bankibgapp.bankingservice.model.UtilityAccountRepository;
+import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
+import com.bankibgapp.bankingservice.model.dto.UtilityAccountDTO;
+import com.bankibgapp.bankingservice.model.mapper.BankAccountMapper;
+import com.bankibgapp.bankingservice.model.mapper.UtilityAccountMapper;
+import com.bankibgapp.bankingservice.model.entity.BankAccount;
+import com.bankibgapp.bankingservice.model.entity.UtilityAccount;
+import com.bankibgapp.bankingservice.repository.UtilityAccountRepository;
 import com.bankibgapp.bankingservice.repository.BankAccountRepository;
 import org.springframework.stereotype.Service;
 

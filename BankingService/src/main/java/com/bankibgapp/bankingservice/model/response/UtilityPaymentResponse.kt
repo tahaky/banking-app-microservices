@@ -1,4 +1,4 @@
-package com.bankibgapp.bankingservice.response
+package com.bankibgapp.bankingservice.model.response
 
 data class UtilityPaymentResponse @JvmOverloads constructor(
     var message: String,

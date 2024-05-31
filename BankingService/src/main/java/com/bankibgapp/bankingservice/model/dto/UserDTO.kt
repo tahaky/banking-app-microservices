@@ -1,7 +1,5 @@
-package com.bankibgapp.bankingservice.dto
+package com.bankibgapp.bankingservice.model.dto
 
-import com.bankibgapp.bankingservice.model.BankAccount
-import java.util.Collections
 import java.util.UUID
 
 data class UserDTO @JvmOverloads constructor(

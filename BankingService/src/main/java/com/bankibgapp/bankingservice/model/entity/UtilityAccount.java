@@ -1,4 +1,4 @@
-package com.bankibgapp.bankingservice.model;
+package com.bankibgapp.bankingservice.model.entity;
 
 import jakarta.persistence.*;
 

@@ -1,6 +1,6 @@
 package com.bankibgapp.bankingservice.repository;
 
-import com.bankibgapp.bankingservice.model.User;
+import com.bankibgapp.bankingservice.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
