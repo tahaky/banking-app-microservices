@@ -1,16 +1,17 @@
 package com.bankibgapp.bankingservice.service;
 
-import com.bankibgapp.bankingservice.model.dto.UserDTO;
+import com.bankibgapp.bankingservice.model.dto.UserDto;
 import com.bankibgapp.bankingservice.model.mapper.UserMapper;
 import com.bankibgapp.bankingservice.model.entity.User;
 import com.bankibgapp.bankingservice.repository.UserRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
@@ -19,15 +20,17 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public UserDTO getUser(String identificationNumber) {
+    public UserDto readUser(String identificationNumber) {
         Optional<User> user = userRepository.findByIdentificationNumber(identificationNumber);
+        System.out.println(user.get()+"asdasd");
         if (user.isPresent()) {
             return userMapper.convertToDto(user.get());
         } else {
-            throw new RuntimeException("err");
+            throw new RuntimeException();
         }
     }
-    public List<UserDTO> readUsers() {
+
+    public List<UserDto> readUsers() {
         return userMapper.convertToDtoList(userRepository.findAll());
     }
 

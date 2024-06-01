@@ -1,26 +1,27 @@
 package com.bankibgapp.bankingservice.model.mapper;
 
-import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
+import com.bankibgapp.bankingservice.model.dto.BankAccountDto;
 import com.bankibgapp.bankingservice.model.entity.BankAccount;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BankAccountMapper extends BaseMapper<BankAccount, BankAccountDTO> {
+public class BankAccountMapper extends BaseMapper<BankAccount, BankAccountDto> {
     @Override
-    public BankAccount convertToEntity(BankAccountDTO dto, Object... args) {
+    public BankAccount convertToEntity(BankAccountDto dto, Object... args) {
         BankAccount bankAccount = new BankAccount();
         if (dto != null) {
-            BeanUtils.copyProperties(dto, bankAccount, "user");
+            BeanUtils.copyProperties(dto, bankAccount,"user");
         }
         return bankAccount;
     }
 
     @Override
-    public BankAccountDTO convertToDto(BankAccount entity, Object... args) {
-        BankAccountDTO dto = new BankAccountDTO();
+    public BankAccountDto convertToDto(BankAccount entity, Object... args) {
+        System.out.println(entity);
+        BankAccountDto dto = new BankAccountDto();
         if (entity != null) {
-            BeanUtils.copyProperties(entity, dto, "user");
+            BeanUtils.copyProperties(entity, dto,"user");
         }
         return dto;
     }

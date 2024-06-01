@@ -1,7 +1,8 @@
 package com.bankibgapp.bankingservice.service;
 
-import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
-import com.bankibgapp.bankingservice.model.dto.UtilityAccountDTO;
+
+import com.bankibgapp.bankingservice.model.dto.BankAccountDto;
+import com.bankibgapp.bankingservice.model.dto.UtilityAccountDto;
 import com.bankibgapp.bankingservice.model.entity.BankAccount;
 import com.bankibgapp.bankingservice.model.entity.TransactionEntity;
 import com.bankibgapp.bankingservice.model.TransactionType;
@@ -21,7 +22,7 @@ import java.util.UUID;
 
 @Service
 @Transactional
-public class TransactionService {
+public class TransactionService implements ITransactionService {
     private final AccountService accountService;
     private final BankAccountRepository bankAccountRepository;
 
@@ -36,20 +37,20 @@ public class TransactionService {
     }
 
     public FundTransferResponse fundTransfer(FundTransferRequest fundTransferRequest) {
-        BankAccountDTO fromBankAccount = accountService.readBankAccount(fundTransferRequest.getFromAccount());
-        BankAccountDTO toBankAccount = accountService.readBankAccount(fundTransferRequest.getToAccount());
+        BankAccountDto fromBankAccount = accountService.readBankAccount(fundTransferRequest.getFromAccount());
+        BankAccountDto toBankAccount = accountService.readBankAccount(fundTransferRequest.getToAccount());
         transactionUtil.validateBalance(fromBankAccount, fundTransferRequest.getAmount());
         String transactionId = internalFundTransfer(fromBankAccount, toBankAccount, fundTransferRequest.getAmount());
-        return new FundTransferResponse(
-                "Transaction successfully completed",
+        return new
+                FundTransferResponse("Transaction successfully completed",
                 transactionId);
-
     }
 
-    public String internalFundTransfer(BankAccountDTO fromBankAccount, BankAccountDTO toBankAccount, BigDecimal amount) {
+
+    public String internalFundTransfer(BankAccountDto fromBankAccount, BankAccountDto toBankAccount, BigDecimal amount) {
         String transactionId = UUID.randomUUID().toString();
-        Optional<BankAccount> fromBankAccountEntityOptional = bankAccountRepository.findByNumber(fromBankAccount.getNumber());
-        Optional<BankAccount> toBankAccountEntityOptional = bankAccountRepository.findByNumber(toBankAccount.getNumber());
+        Optional<BankAccount> fromBankAccountEntityOptional = bankAccountRepository.findByBankingNumber(fromBankAccount.getBankingNumber());
+        Optional<BankAccount> toBankAccountEntityOptional = bankAccountRepository.findByBankingNumber(toBankAccount.getBankingNumber());
         BankAccount fromBankAccountEntity;
         BankAccount toBankAccountEntity;
 
@@ -61,9 +62,9 @@ public class TransactionService {
         fromBankAccountEntity = transactionUtil.setAccountBalances(fromBankAccountEntity, amount);
         bankAccountRepository.save(fromBankAccountEntity);
         transactionRepository.save(
-                new TransactionEntity()
+                TransactionEntity.builder()
                         .transactionType(TransactionType.FUND_TRANSFER)
-                        .referenceNumber(toBankAccountEntity.getNumber())
+                        .referenceNumber(toBankAccountEntity.getBankingNumber())
                         .transactionId(transactionId)
                         .account(fromBankAccountEntity)
                         .amount(amount.negate())
@@ -71,9 +72,9 @@ public class TransactionService {
         );
         toBankAccountEntity = transactionUtil.setAccountBalances(toBankAccountEntity, amount);
         transactionRepository.save(
-                new TransactionEntity()
+                TransactionEntity.builder()
                         .transactionType(TransactionType.FUND_TRANSFER)
-                        .referenceNumber(toBankAccountEntity.getNumber())
+                        .referenceNumber(toBankAccountEntity.getBankingNumber())
                         .transactionId(transactionId)
                         .account(toBankAccountEntity)
                         .amount(amount)
@@ -85,19 +86,20 @@ public class TransactionService {
 
         String transactionId = UUID.randomUUID().toString();
 
-        BankAccountDTO fromBankAccount = accountService.readBankAccount(utilityPaymentRequest.getAccount());
+        BankAccountDto fromBankAccount = accountService.readBankAccount(utilityPaymentRequest.getAccount());
 
         transactionUtil.validateBalance(fromBankAccount, utilityPaymentRequest.getAmount());
 
-        UtilityAccountDTO utilityAccount = accountService.readUtilityAccount(utilityPaymentRequest.getProviderId());
+        UtilityAccountDto utilityAccount = accountService.readUtilityAccount(utilityPaymentRequest.getProviderId());
 
-        Optional<BankAccount> fromAccountOptional = bankAccountRepository.findByNumber(fromBankAccount.getNumber());
+        Optional<BankAccount> fromAccountOptional = bankAccountRepository.findByBankingNumber(fromBankAccount.getBankingNumber());
         BankAccount fromAccount;
         if (fromAccountOptional.isPresent()) {
             fromAccount = fromAccountOptional.get();
         } else throw new RuntimeException("err");
 
-        transactionRepository.save(new TransactionEntity().transactionType(TransactionType.UTILITY_PAYMENT)
+        transactionRepository.save(TransactionEntity.builder()
+                .transactionType(TransactionType.UTILITY_PAYMENT)
                 .account(fromAccount)
                 .transactionId(transactionId)
                 .referenceNumber(utilityPaymentRequest.getReferenceNumber())

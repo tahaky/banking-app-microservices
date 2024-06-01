@@ -1,6 +1,6 @@
 package com.bankibgapp.bankingservice.util;
 
-import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
+import com.bankibgapp.bankingservice.model.dto.BankAccountDto;
 import com.bankibgapp.bankingservice.model.entity.BankAccount;
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Component
 public class TransactionUtil {
 
-    public void validateBalance(BankAccountDTO bankAccount, BigDecimal amount) {
+    public void validateBalance(BankAccountDto bankAccount, BigDecimal amount) {
         BigDecimal actualBalance = bankAccount.getActualBalance();
         if (actualBalance != null) {
             if (actualBalance.signum() < 0 ||

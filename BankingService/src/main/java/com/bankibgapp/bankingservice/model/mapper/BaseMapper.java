@@ -1,11 +1,15 @@
 package com.bankibgapp.bankingservice.model.mapper;
 
 
+import org.modelmapper.ModelMapper;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 public abstract class BaseMapper<E, D> {
+
     public abstract E convertToEntity(D dto, Object... args);
+
     public abstract D convertToDto(E entity, Object... args);
 
     public Collection<E> convertToEntity(Collection<D> dto, Object... args) {

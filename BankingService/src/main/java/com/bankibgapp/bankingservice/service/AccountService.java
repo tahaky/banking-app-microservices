@@ -1,8 +1,8 @@
 package com.bankibgapp.bankingservice.service;
 
 
-import com.bankibgapp.bankingservice.model.dto.BankAccountDTO;
-import com.bankibgapp.bankingservice.model.dto.UtilityAccountDTO;
+import com.bankibgapp.bankingservice.model.dto.BankAccountDto;
+import com.bankibgapp.bankingservice.model.dto.UtilityAccountDto;
 import com.bankibgapp.bankingservice.model.mapper.BankAccountMapper;
 import com.bankibgapp.bankingservice.model.mapper.UtilityAccountMapper;
 import com.bankibgapp.bankingservice.model.entity.BankAccount;
@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class AccountService {
+public class AccountService implements IAccountService {
 
     private final BankAccountMapper bankAccountMapper;
     private final UtilityAccountMapper utilityAccountMapper;
@@ -29,8 +29,8 @@ public class AccountService {
         this.utilityAccountRepository = utilityAccountRepository;
     }
 
-    public BankAccountDTO readBankAccount(String accountNumber) {
-        Optional<BankAccount> bankAccount = bankAccountRepository.findByNumber(accountNumber);
+    public BankAccountDto readBankAccount(String accountNumber) {
+        Optional<BankAccount> bankAccount = bankAccountRepository.findByBankingNumber(accountNumber);
         if (bankAccount.isPresent()) {
             return bankAccountMapper.convertToDto(bankAccount.get());
         } else {
@@ -38,7 +38,7 @@ public class AccountService {
         }
     }
 
-    public UtilityAccountDTO readUtilityAccount(String provider) {
+    public UtilityAccountDto readUtilityAccount(String provider) {
         Optional<UtilityAccount> utilityAccountEntity = utilityAccountRepository.findByProviderName(provider);
         if (utilityAccountEntity.isPresent()) {
             return utilityAccountMapper.convertToDto(utilityAccountEntity.get());
@@ -47,7 +47,7 @@ public class AccountService {
         }
     }
 
-    public UtilityAccountDTO readUtilityAccount(UUID id) {
+    public UtilityAccountDto readUtilityAccount(UUID id) {
         Optional<UtilityAccount> utilityAccount = utilityAccountRepository.findById(id);
         if (utilityAccount.isPresent()) {
             return utilityAccountMapper.convertToDto(utilityAccount.get());
