@@ -8,10 +8,10 @@ This project is being developed on a microservice architecture. Project scope is
 ## Technologies used (up to this stage) 
 
 - Java
-- Sprin Boot 
-- Netflix Euroka Service
+- Spring Boot 
+- Netflix Eureka Service
 - Spring Cloud Gateway
-- PostgreSQL
+- PostgresSQL
 - Keycloak
   
 
