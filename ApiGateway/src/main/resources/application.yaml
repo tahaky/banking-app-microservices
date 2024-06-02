@@ -1,10 +1,6 @@
 spring:
   application:
     name: api-gateway
-info:
-  app:
-    name: ${spring.application.name}
-  #Gateway conf
   cloud:
     gateway:
       routes:
@@ -12,7 +8,14 @@ info:
           uri: lb://banking-service
           predicates:
             - Path=/banking-service/**
-#--------------
+          filters:
+            - StripPrefix=1
+
+info:
+  app:
+    name: ${spring.application.name}
+  #Gateway conf
+  #--------------
 server:
   port: 8888
 #--------------
