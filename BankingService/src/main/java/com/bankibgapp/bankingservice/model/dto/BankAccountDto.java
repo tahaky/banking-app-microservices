@@ -2,7 +2,6 @@ package com.bankibgapp.bankingservice.model.dto;
 
 import com.bankibgapp.bankingservice.model.AccountStatus;
 import com.bankibgapp.bankingservice.model.AccountType;
-import com.bankibgapp.bankingservice.model.entity.User;
 import lombok.Data;
 
 import java.math.BigDecimal;

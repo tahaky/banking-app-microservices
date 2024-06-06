@@ -3,7 +3,6 @@ package com.bankibgapp.bankingservice.model.mapper;
 import com.bankibgapp.bankingservice.model.dto.UserDto;
 import com.bankibgapp.bankingservice.model.entity.User;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

@@ -1,12 +1,10 @@
 package com.bankingapp.userservice.service;
 
-import jakarta.ws.rs.core.Response;
-import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.representations.idm.UserRepresentation;
 
 import java.util.List;
 
-public interface IKeycloakService {
+public interface IKeycloakUserService {
 
 
     Integer createUser(UserRepresentation userRepresentation);

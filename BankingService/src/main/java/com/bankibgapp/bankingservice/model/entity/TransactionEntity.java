@@ -2,7 +2,6 @@ package com.bankibgapp.bankingservice.model.entity;
 
 
 import com.bankibgapp.bankingservice.model.TransactionType;
-import com.bankibgapp.bankingservice.model.builder.ITransactionBuilder;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Component
-public class UserServiceUtilUtil implements IUserServiceUtil {
+public class UserServiceUtil implements IUserServiceUtil {
     @Override
     public UserRepresentation createUserRepresentation(UserDto userDto,CredentialRepresentation credentialRepresentation) {
         UserRepresentation userRepresentation = new UserRepresentation();
@@ -28,5 +28,13 @@ public class UserServiceUtilUtil implements IUserServiceUtil {
         credentialRepresentation.setValue(userDto.getPassword());
         credentialRepresentation.setTemporary(false);
         return credentialRepresentation;
+    }
+
+    @Override
+    public UserDto representationToEntityDto(UserDto userDto) {
+        return UserDto.builder()
+                .authId(userDto.getAuthId())
+                .email(userDto.getEmail())
+                .build();
     }
 }

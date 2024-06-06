@@ -1,17 +1,17 @@
 package com.bankibgapp.bankingservice.service;
 
 
+import com.bankibgapp.bankingservice.model.TransactionType;
 import com.bankibgapp.bankingservice.model.dto.BankAccountDto;
 import com.bankibgapp.bankingservice.model.dto.UtilityAccountDto;
 import com.bankibgapp.bankingservice.model.entity.BankAccount;
 import com.bankibgapp.bankingservice.model.entity.TransactionEntity;
-import com.bankibgapp.bankingservice.model.TransactionType;
-import com.bankibgapp.bankingservice.repository.BankAccountRepository;
-import com.bankibgapp.bankingservice.repository.TransactionRepository;
 import com.bankibgapp.bankingservice.model.request.FundTransferRequest;
 import com.bankibgapp.bankingservice.model.request.UtilityPaymentRequest;
 import com.bankibgapp.bankingservice.model.response.FundTransferResponse;
 import com.bankibgapp.bankingservice.model.response.UtilityPaymentResponse;
+import com.bankibgapp.bankingservice.repository.BankAccountRepository;
+import com.bankibgapp.bankingservice.repository.TransactionRepository;
 import com.bankibgapp.bankingservice.util.TransactionUtil;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;

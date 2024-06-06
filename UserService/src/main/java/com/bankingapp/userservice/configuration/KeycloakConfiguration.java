@@ -22,21 +22,21 @@ public class KeycloakConfiguration {
     private String clientId;
     @Value("${app.config.keycloak.client-secret}")
     private String clientSecret;
-    private Optional<Keycloak> keycloakInstance;
+    private static Keycloak keycloakInstance = null;
 
     public Keycloak getInstance() {
-        Keycloak keycloak;
-        if (keycloakInstance.isEmpty()) {
-            keycloak = KeycloakBuilder
+
+        if (keycloakInstance == null) {
+            keycloakInstance = KeycloakBuilder
                     .builder()
                     .serverUrl(serverUrl)
-                    .clientId(clientId)
-                    .clientSecret(clientSecret)
                     .realm(realm)
                     .grantType("client_credentials")
+                    .clientId(clientId)
+                    .clientSecret(clientSecret)
                     .build();
-        } else throw new RuntimeException("err");
-        return keycloak;
+        }
+        return keycloakInstance;
     }
 
 }

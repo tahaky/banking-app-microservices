@@ -1,10 +1,5 @@
 package com.bankibgapp.bankingservice.model.dto;
 
-import com.bankibgapp.bankingservice.model.entity.BankAccount;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 import java.util.List;

@@ -9,4 +9,6 @@ public interface IUserServiceUtil {
     UserRepresentation createUserRepresentation(UserDto userDto,CredentialRepresentation credentialRepresentation);
 
     CredentialRepresentation createCredentialRepresentation(UserDto userDto);
+
+    UserDto representationToEntityDto(UserDto userDto);
 }

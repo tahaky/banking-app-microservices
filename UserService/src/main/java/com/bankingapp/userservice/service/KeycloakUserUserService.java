@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class KeycloakUserService implements IKeycloakService {
+public class KeycloakUserUserService implements IKeycloakUserService {
     private final KeycloakManager keyCloakManager;
 
     public Integer createUser(UserRepresentation userRepresentation) {
