@@ -1,10 +1,9 @@
 package com.bankibgapp.bankingservice.service;
 
 import com.bankibgapp.bankingservice.model.dto.UserDto;
-import com.bankibgapp.bankingservice.model.mapper.UserMapper;
 import com.bankibgapp.bankingservice.model.entity.User;
+import com.bankibgapp.bankingservice.model.mapper.UserMapper;
 import com.bankibgapp.bankingservice.repository.UserRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
