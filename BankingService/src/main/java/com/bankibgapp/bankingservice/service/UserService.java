@@ -21,7 +21,6 @@ public class UserService implements IUserService {
 
     public UserDto readUser(String identificationNumber) {
         Optional<User> user = userRepository.findByIdentificationNumber(identificationNumber);
-        System.out.println(user.get()+"asdasd");
         if (user.isPresent()) {
             return userMapper.convertToDto(user.get());
         } else {

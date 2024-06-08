@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
         <module name="BankingService" />
+        <module name="FundTransferService" />
         <module name="ApiGateway" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
@@ -29,6 +30,7 @@
       <module name="ApiGateway" options="-parameters" />
       <module name="BankingService" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
+      <module name="FundTransferService" options="-parameters" />
       <module name="UserService" options="-parameters" />
     </option>
   </component>
