@@ -16,6 +16,7 @@ public class KeycloakUserUserService implements IKeycloakUserService {
     private final KeycloakManager keyCloakManager;
 
     public Integer createUser(UserRepresentation userRepresentation) {
+        System.out.println(userRepresentation);
         Response response = keyCloakManager.getKeyCloakInstanceWithRealm().users().create(userRepresentation);
         return response.getStatus();
     }
@@ -29,9 +30,6 @@ public class KeycloakUserUserService implements IKeycloakUserService {
         return keyCloakManager.getKeyCloakInstanceWithRealm().users().search(email);
     }
 
-    /*
-    TODO: Remove Try catch here
-     **/
     public UserRepresentation readUser(String authId) {
         try {
             UserResource userResource = keyCloakManager.getKeyCloakInstanceWithRealm().users().get(authId);

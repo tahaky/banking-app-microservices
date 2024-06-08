@@ -24,6 +24,6 @@ app:
   config:
     keycloak:
       server-url: http://localhost:8080/
-      realm: internet-banking
+      realm: internet-banking-realm
       clientId: internet-banking-client-core
-      client-secret: arlfXZvMW5uSFxS679i8l9lCyNtFYEP0
+      client-secret: x80WqHMz4LswHEArFqiCrrFO8jbJUnW3

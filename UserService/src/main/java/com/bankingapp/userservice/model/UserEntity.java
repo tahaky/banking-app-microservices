@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user_entity")
 @Getter
 @Setter
 @RequiredArgsConstructor

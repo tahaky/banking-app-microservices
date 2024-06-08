@@ -19,11 +19,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserController {
     private final IKeycloakUserService keycloakUserService;
-    private final
-
-
-
-    qqIUserService userService;
+    private final IUserService userService;
 
     @PostMapping(value = "/register")
     public ResponseEntity<String> createUser(@RequestBody UserDto request) {

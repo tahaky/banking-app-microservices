@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class KeycloakManager {
     private final KeycloakConfiguration keycloakConfiguration;
-
     public RealmResource getKeyCloakInstanceWithRealm() {
         return keycloakConfiguration.getInstance().realm(keycloakConfiguration.getRealm());
     }
