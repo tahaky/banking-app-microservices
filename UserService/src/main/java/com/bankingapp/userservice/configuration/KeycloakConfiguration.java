@@ -3,16 +3,18 @@ package com.bankingapp.userservice.configuration;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
 @Slf4j
-@Configuration
+@Component
 public class KeycloakConfiguration {
     @Getter
     @Value("${app.config.keycloak.realm}")
@@ -25,14 +27,13 @@ public class KeycloakConfiguration {
     private String clientSecret;
     private static Keycloak keycloakInstance = null;
 
-    @Bean
     public Keycloak getInstance() {
-
         if (keycloakInstance == null) {
-            keycloakInstance = KeycloakBuilder.builder()
+            keycloakInstance = KeycloakBuilder
+                    .builder()
                     .serverUrl(serverUrl)
                     .realm(realm)
-                    .grantType("client_credentials")
+                    .grantType(OAuth2Constants.CLIENT_CREDENTIALS)
                     .clientId(clientId)
                     .clientSecret(clientSecret)
                     .build();

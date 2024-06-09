@@ -10,6 +10,18 @@ spring:
             - Path=/banking-service/**
           filters:
             - StripPrefix=1
+        - id: fund-transfer-service
+          uri: lb://fund-transfer-service
+          predicates:
+            - Path=/fund-transfer-service/**
+          filters:
+            - StripPrefix=1
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/**
+          filters:
+            - StripPrefix=1
 
 info:
   app:
